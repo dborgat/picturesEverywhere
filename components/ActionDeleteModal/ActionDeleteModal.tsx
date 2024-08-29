@@ -32,6 +32,7 @@ const ActionDeleteModal = ({
       onRequestClose={() => {
         setModalVisible(!modalVisible);
       }}
+      testID='action-delete-modal'
     >
       <View style={modalContent}>
         <View style={titleContainer}>
