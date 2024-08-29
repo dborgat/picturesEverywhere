@@ -11,6 +11,9 @@ const styles = StyleSheet.create({
     message: {
         textAlign: 'center',
         paddingBottom: 10,
+        color: ColorScheme.CAMERA_BUTTON,
+        fontSize: 20,
+        fontWeight: 'bold',
     },
     camera: {
         flex: 1,
