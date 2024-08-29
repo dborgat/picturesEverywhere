@@ -17,6 +17,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     cameraButtonText: { fontSize: 20, fontWeight: 'bold', color: ColorScheme.BACKGROUND },
+    emptyListContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    emptyListText: { color: 'white', fontWeight: 'bold', fontSize: 25 }
 });
 
 export default styles;

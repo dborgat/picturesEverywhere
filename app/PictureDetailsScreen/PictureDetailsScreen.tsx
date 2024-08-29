@@ -1,10 +1,11 @@
 import React from 'react';
 import { useLocalSearchParams } from 'expo-router';
-import { View, Image, Button, Pressable, Text } from 'react-native';
+import { View, Image, TouchableOpacity, Text } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import useFotos from '@/hooks/usePictures';
 import styles from './PictureDetailsScreen.styles';
 import { Ionicons } from '@expo/vector-icons';
+import { ColorScheme } from '@/constants/Colors';
 
 export default function PictureDetailsScreen() {
   const { photoId } = useLocalSearchParams();
@@ -44,13 +45,17 @@ export default function PictureDetailsScreen() {
         )}
       </View>
 
-      <Pressable
+      <TouchableOpacity
         onPress={() => handleShare(selectedPhoto?.uri)}
         style={shareIconButton}
       >
-        <Ionicons name='share-social-sharp' size={25} color='#ffffff' />
+        <Ionicons
+          name='share-social-sharp'
+          size={25}
+          color={ColorScheme.BACKGROUND}
+        />
         <Text style={shareTextButton}>Compartir</Text>
-      </Pressable>
+      </TouchableOpacity>
     </View>
   );
 }

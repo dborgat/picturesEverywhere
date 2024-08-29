@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     actionButtons: {
         borderRadius: 5,
         flexDirection: 'row',
+        alignItems: 'center',
         padding: 5,
         width: 150,
         gap: 20,

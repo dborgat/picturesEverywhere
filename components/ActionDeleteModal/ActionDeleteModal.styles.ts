@@ -33,10 +33,10 @@ const stylesModal = StyleSheet.create({
         elevation: 2,
         marginVertical: 10,
     },
-    buttonOpen: {
-        backgroundColor: ColorScheme.CAMERA_BUTTON,
+    cancelButton: {
+        backgroundColor: ColorScheme.BACKGROUND,
     },
-    buttonClose: {
+    confirmButton: {
         backgroundColor: ColorScheme.DELETE_BUTTON,
     },
     textStyle: {

@@ -1,8 +1,8 @@
-import useFotos from '@/hooks/usePictures';
 import { MaterialIcons } from '@expo/vector-icons';
 import React from 'react';
-import { View, Modal, Text, Pressable, StyleSheet, Image } from 'react-native';
+import { View, Modal, Text, TouchableOpacity, Image } from 'react-native';
 import stylesModal from './ActionDeleteModal.styles';
+import { ColorScheme } from '@/constants/Colors';
 const ActionShareOrDeleteModal = ({
   setModalVisible,
   modalVisible,
@@ -15,12 +15,12 @@ const ActionShareOrDeleteModal = ({
     titleContainer,
     title,
     button,
-    buttonClose,
+    confirmButton,
     textStyle,
     image,
     pressableContainer,
     imageContainer,
-    buttonOpen,
+    cancelButton,
   } = stylesModal;
 
   return (
@@ -35,32 +35,36 @@ const ActionShareOrDeleteModal = ({
       <View style={modalContent}>
         <View style={titleContainer}>
           <Text style={title}>¿Desea eliminar esta foto?</Text>
-          <Pressable onPress={() => setModalVisible(!modalVisible)}>
-            <MaterialIcons name='close' color='#fff' size={22} />
-          </Pressable>
+          <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
+            <MaterialIcons
+              name='close'
+              color={ColorScheme.BACKGROUND}
+              size={30}
+            />
+          </TouchableOpacity>
         </View>
         {children}
         <View style={imageContainer}>
           <Image source={{ uri }} style={image} />
         </View>
         <View style={pressableContainer}>
-          <Pressable
-            style={[button, buttonClose]}
+          <TouchableOpacity
+            style={[button, confirmButton]}
             onPress={() => {
               setModalVisible(!modalVisible);
               onDelete();
             }}
           >
             <Text style={textStyle}>Si</Text>
-          </Pressable>
-          <Pressable
-            style={[button, buttonOpen]}
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[button, cancelButton]}
             onPress={() => {
               setModalVisible(!modalVisible);
             }}
           >
             <Text style={textStyle}>No</Text>
-          </Pressable>
+          </TouchableOpacity>
         </View>
       </View>
     </Modal>

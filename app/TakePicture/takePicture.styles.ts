@@ -15,6 +15,8 @@ const styles = StyleSheet.create({
     camera: {
         flex: 1,
         flexDirection: 'column-reverse',
+        borderRadius: 10,
+        overflow: 'hidden',
     },
     buttonContainer: {
         flexDirection: 'row',
@@ -25,7 +27,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
     },
-    iconCameraStyle: { backgroundColor: ColorScheme.BACKGROUND, borderRadius: 100 }
 });
 
 export default styles;

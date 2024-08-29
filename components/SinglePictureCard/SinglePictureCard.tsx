@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { View, Image, Pressable, Button, Text } from 'react-native';
+import { View, Image, TouchableOpacity, Text } from 'react-native';
 import { useRouter } from 'expo-router';
 import ActionShareOrDeleteModal from '../ActionDeleteModal/ActionDeleteModal';
 import { Ionicons } from '@expo/vector-icons';
 import styles from './SinglePictureCard.styles';
+import { ColorScheme } from '@/constants/Colors';
 
 const SinglePictureCard = ({
   uri,
   id,
-  deleteSinglePhoto,
+  deleteSinglePicture,
   handleShare,
 }: any) => {
   const router = useRouter();
@@ -25,7 +26,7 @@ const SinglePictureCard = ({
   return (
     <>
       <View style={container}>
-        <Pressable
+        <TouchableOpacity
           style={{ overflow: 'hidden' }}
           onPress={() =>
             router.push({
@@ -35,26 +36,38 @@ const SinglePictureCard = ({
           }
         >
           <Image source={{ uri }} style={image} />
-        </Pressable>
+        </TouchableOpacity>
         <View style={buttonsContainer}>
-          <Pressable
+          <TouchableOpacity
             onPress={() => handleShare(uri)}
             style={[actionButtons, shareButton]}
           >
-            <Ionicons name='share-social-sharp' size={22} color='#ffffff' />
-            <Text style={{ color: 'white' }}>Compartir</Text>
-          </Pressable>
-          <Pressable
+            <Ionicons
+              name='share-social-sharp'
+              size={22}
+              color={ColorScheme.BACKGROUND}
+            />
+            <Text style={{ color: ColorScheme.BACKGROUND, fontWeight: 'bold' }}>
+              Compartir
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
             onPress={() => setModalVisible(true)}
             style={[deleteButton, actionButtons]}
           >
-            <Ionicons name='trash-bin-sharp' size={22} color='#00000094' />
-            <Text>Eliminar foto</Text>
-          </Pressable>
+            <Ionicons
+              name='trash-bin-sharp'
+              size={22}
+              color={ColorScheme.BACKGROUND}
+            />
+            <Text style={{ color: ColorScheme.BACKGROUND, fontWeight: 'bold' }}>
+              Eliminar foto
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
       <ActionShareOrDeleteModal
-        onDelete={() => deleteSinglePhoto(id)}
+        onDelete={() => deleteSinglePicture(id)}
         setModalVisible={setModalVisible}
         modalVisible={modalVisible}
         uri={uri}
