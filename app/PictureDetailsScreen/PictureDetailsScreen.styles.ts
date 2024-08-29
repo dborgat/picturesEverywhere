@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         borderRadius: 20,
     },
-   
+
     containerMap: {
         width: '100%',
         height: '20%',
@@ -36,7 +36,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 20,
     },
-    shareTextButton: { color: ColorScheme.BACKGROUND, fontSize: 25 }
 });
 
 export default styles;

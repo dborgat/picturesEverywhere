@@ -5,6 +5,7 @@ import ActionShareOrDeleteModal from '../ActionDeleteModal/ActionDeleteModal';
 import { Ionicons } from '@expo/vector-icons';
 import styles from './SinglePictureCard.styles';
 import { ColorScheme } from '@/constants/Colors';
+import TouchableOpacityButton from '../TouchableOpacityButton/TouchableOpacityButton';
 
 const SinglePictureCard = ({
   uri,
@@ -14,14 +15,8 @@ const SinglePictureCard = ({
 }: any) => {
   const router = useRouter();
   const [modalVisible, setModalVisible] = useState(false);
-  const {
-    container,
-    image,
-    buttonsContainer,
-    shareButton,
-    deleteButton,
-    actionButtons,
-  } = styles;
+  const { container, image, buttonsContainer, shareButton, deleteButton } =
+    styles;
 
   return (
     <>
@@ -38,32 +33,18 @@ const SinglePictureCard = ({
           <Image source={{ uri }} style={image} />
         </TouchableOpacity>
         <View style={buttonsContainer}>
-          <TouchableOpacity
-            onPress={() => handleShare(uri)}
-            style={[actionButtons, shareButton]}
-          >
-            <Ionicons
-              name='share-social-sharp'
-              size={22}
-              color={ColorScheme.BACKGROUND}
-            />
-            <Text style={{ color: ColorScheme.BACKGROUND, fontWeight: 'bold' }}>
-              Compartir
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => setModalVisible(true)}
-            style={[deleteButton, actionButtons]}
-          >
-            <Ionicons
-              name='trash-bin-sharp'
-              size={22}
-              color={ColorScheme.BACKGROUND}
-            />
-            <Text style={{ color: ColorScheme.BACKGROUND, fontWeight: 'bold' }}>
-              Eliminar foto
-            </Text>
-          </TouchableOpacity>
+          <TouchableOpacityButton
+            title='Compartir'
+            icon='share'
+            onPressAction={() => handleShare(uri)}
+            buttonColor={shareButton}
+          />
+          <TouchableOpacityButton
+            title='Eliminar foto'
+            icon='delete'
+            onPressAction={() => setModalVisible(true)}
+            buttonColor={deleteButton}
+          />
         </View>
       </View>
       <ActionShareOrDeleteModal

@@ -1,12 +1,11 @@
 import React from 'react';
-import { View, Button, FlatList, TouchableHighlight, Text } from 'react-native';
+import { View, FlatList, Text } from 'react-native';
 import useFotos from '@/hooks/usePictures';
 import SinglePictureCard from '@/components/SinglePictureCard/SinglePictureCard';
-import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import styles from './index.styles';
-import { ColorScheme } from '@/constants/Colors';
 import Loader from '@/components/Loader/Loader';
+import TouchableOpacityButton from '@/components/TouchableOpacityButton/TouchableOpacityButton';
 
 function GalleryScreen() {
   const { pictures, deleteSinglePicture, handleShare, loading } = useFotos();
@@ -17,7 +16,6 @@ function GalleryScreen() {
     flatListContentContainer,
     itemSeparator,
     cameraButtonStyle,
-    cameraButtonText,
     emptyListContainer,
     emptyListText,
   } = styles;
@@ -53,20 +51,17 @@ function GalleryScreen() {
         />
       )}
       <View style={itemSeparator} />
-      <TouchableHighlight
-        underlayColor={ColorScheme.SHARE_BUTTON}
-        onPress={() =>
+      <TouchableOpacityButton
+        title='Tomar foto'
+        icon='openCamera'
+        onPressAction={() =>
           router.push({
             pathname: '../TakePicture/TakePicture',
           })
         }
-        style={cameraButtonStyle}
-      >
-        <>
-          <Ionicons name='camera' color={ColorScheme.BACKGROUND} size={40} />
-          <Text style={cameraButtonText}>Tomar foto</Text>
-        </>
-      </TouchableHighlight>
+        buttonColor={cameraButtonStyle}
+        size={25}
+      />
     </View>
   );
 }
