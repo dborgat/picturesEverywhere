@@ -3,6 +3,7 @@ import { ColorScheme } from '@/constants/Colors';
 import { ICONS } from '@/constants/icons';
 import { TouchableOpacity, Text } from 'react-native';
 import styles from '../SinglePictureCard/SinglePictureCard.styles';
+import { TouchableOpacityButtonProps } from '@/types';
 
 interface IconMap {
   [key: string]: React.ReactNode;
@@ -14,17 +15,13 @@ const TouchableOpacityButton = ({
   buttonColor,
   size,
   onPressAction,
-}: {
-  title: string;
-  icon?: string;
-  buttonColor: { backgroundColor: string };
-  size?: number;
-  onPressAction: () => void;
-}) => {
+  testId,
+}: TouchableOpacityButtonProps) => {
   const { actionButtons } = styles;
 
   return (
     <TouchableOpacity
+      testID={testId}
       onPress={onPressAction}
       style={[actionButtons, buttonColor]}
     >

@@ -28,6 +28,7 @@ const SinglePictureCard = ({
               params: { photoId: id },
             })
           }
+          testID='nav-to-details'
         >
           <Image source={{ uri }} style={image} />
         </TouchableOpacity>

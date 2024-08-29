@@ -13,3 +13,12 @@ export interface SinglePictureCardProps {
 }
 
 export interface PicturesProps { id: string; uri: any; location: { latitude: any; longitude: any } }
+
+export interface TouchableOpacityButtonProps {
+    title: string;
+    icon?: string;
+    buttonColor: { backgroundColor: string };
+    size?: number;
+    onPressAction: () => void;
+    testId?: string;
+}

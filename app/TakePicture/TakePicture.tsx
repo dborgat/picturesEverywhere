@@ -74,7 +74,7 @@ export default function TakePicture() {
 
   return (
     <View style={container}>
-      <CameraView ref={cameraRef} style={camera} flash='auto'>
+      <CameraView ref={cameraRef} style={camera} flash='auto' testID='camera-view'>
         {loadingTakePicture ? (
           <Loader title='Cargando foto...' />
         ) : (
