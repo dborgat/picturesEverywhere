@@ -1,12 +1,13 @@
 import { StyleSheet } from "react-native";
+import { ColorScheme } from "@/constants/Colors";
 
 const styles = StyleSheet.create({
-    mainContainer: { flex: 1, padding: 20 },
+    mainContainer: { flex: 1, padding: 20, backgroundColor: ColorScheme.BACKGROUND },
     flatListColumnWrapper: { justifyContent: "space-between" },
     flatListContentContainer: { paddingBottom: 5 },
     itemSeparator: { height: 10 },
     cameraButtonStyle: {
-        backgroundColor: '#2f6ec1',
+        backgroundColor: ColorScheme.CAMERA_BUTTON,
         borderRadius: 5,
         flexDirection: 'row',
         padding: 5,
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    cameraButtonText: { fontSize: 20, fontWeight: 'bold' },
+    cameraButtonText: { fontSize: 20, fontWeight: 'bold', color: ColorScheme.BACKGROUND },
 });
 
 export default styles;

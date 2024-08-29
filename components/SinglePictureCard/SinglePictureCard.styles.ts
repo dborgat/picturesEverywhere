@@ -1,3 +1,4 @@
+import { ColorScheme } from "@/constants/Colors";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
@@ -11,17 +12,17 @@ const styles = StyleSheet.create({
     buttonsContainer: {
         padding: 10,
         width: 165,
-        backgroundColor: '#a7a7a752',
+        backgroundColor: ColorScheme.CAMERA_BUTTON,
         gap: 8,
         borderBottomLeftRadius: 10,
         borderBottomRightRadius: 10,
         alignItems: 'center',
     },
     shareButton: {
-        backgroundColor: '#0e5816',
+        backgroundColor: ColorScheme.SHARE_BUTTON,
     },
     deleteButton: {
-        backgroundColor: '#ef5252',
+        backgroundColor: ColorScheme.DELETE_BUTTON,
     },
     actionButtons: {
         borderRadius: 5,

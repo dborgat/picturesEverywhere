@@ -1,3 +1,4 @@
+import { ColorScheme } from "@/constants/Colors";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
@@ -5,6 +6,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingVertical: 20,
         paddingHorizontal: 10,
+        backgroundColor: ColorScheme.BACKGROUND,
     },
     message: {
         textAlign: 'center',
@@ -23,12 +25,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
     },
-    text: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: 'white',
-    },
-    iconCameraStyle: { backgroundColor: 'white', borderRadius: 100 }
+    iconCameraStyle: { backgroundColor: ColorScheme.BACKGROUND, borderRadius: 100 }
 });
 
 export default styles;

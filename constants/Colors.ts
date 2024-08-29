@@ -24,3 +24,12 @@ export const Colors = {
     tabIconSelected: tintColorDark,
   },
 };
+
+export enum ColorScheme {
+  SHARE_BUTTON = '#36558F',
+  DELETE_BUTTON = '#FF3F00',
+  NAVBAR = '#141414',
+  CAMERA_BUTTON = '#FFFFFF',
+  MODAL_BACKGROUND = '#FFFFFC',
+  BACKGROUND = '#000000'
+}

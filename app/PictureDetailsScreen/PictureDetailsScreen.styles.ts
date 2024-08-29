@@ -1,3 +1,4 @@
+import { ColorScheme } from "@/constants/Colors";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
@@ -6,6 +7,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
+        backgroundColor: ColorScheme.BACKGROUND,
     },
     image: {
         width: '100%',
@@ -13,23 +15,19 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         borderRadius: 20,
     },
-    text: {
-        fontSize: 16,
-        color: '#333',
-    },
+   
     containerMap: {
         width: '100%',
         height: '20%',
         marginBottom: 20,
         borderRadius: 20,
-        backgroundColor: '#000000',
         overflow: 'hidden',
     },
     map: {
         flex: 1,
     },
     shareIconButton: {
-        backgroundColor: '#0e5816',
+        backgroundColor: ColorScheme.SHARE_BUTTON,
         borderRadius: 5,
         flexDirection: 'row',
         padding: 5,
@@ -38,7 +36,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 20,
     },
-    shareTextButton: { color: 'white', fontSize: 25 }
+    shareTextButton: { color: ColorScheme.BACKGROUND, fontSize: 25 }
 });
 
 export default styles;

@@ -1,10 +1,11 @@
+import { ColorScheme } from '@/constants/Colors';
 import { StyleSheet } from 'react-native';
 
 const stylesModal = StyleSheet.create({
     modalContent: {
         height: '50%',
         width: '100%',
-        backgroundColor: '#5278a6',
+        backgroundColor: ColorScheme.MODAL_BACKGROUND,
         borderTopRightRadius: 18,
         borderTopLeftRadius: 18,
         position: 'absolute',
@@ -13,7 +14,7 @@ const stylesModal = StyleSheet.create({
     },
     titleContainer: {
         height: '10%',
-        backgroundColor: '#6aa1f3',
+        backgroundColor: ColorScheme.CAMERA_BUTTON,
         borderTopRightRadius: 10,
         borderTopLeftRadius: 10,
         paddingHorizontal: 20,
@@ -22,28 +23,8 @@ const stylesModal = StyleSheet.create({
         justifyContent: 'space-between',
     },
     title: {
-        color: '#fff',
-        fontSize: 16,
-    },
-    centeredView: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    modalView: {
-        backgroundColor: '#c7b4c4',
-        borderRadius: 20,
-        padding: 30,
-        alignItems: 'center',
-        width: '60%',
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 1,
-        shadowRadius: 4,
-        elevation: 10,
+        color: ColorScheme.BACKGROUND,
+        fontSize: 18,
     },
     button: {
         borderRadius: 10,
@@ -53,18 +34,14 @@ const stylesModal = StyleSheet.create({
         marginVertical: 10,
     },
     buttonOpen: {
-        backgroundColor: '#F194FF',
+        backgroundColor: ColorScheme.CAMERA_BUTTON,
     },
     buttonClose: {
-        backgroundColor: '#2196F3',
+        backgroundColor: ColorScheme.DELETE_BUTTON,
     },
     textStyle: {
         color: 'white',
         fontWeight: 'bold',
-        textAlign: 'center',
-    },
-    modalText: {
-        marginBottom: 15,
         textAlign: 'center',
     },
     imageContainer: {
