@@ -3,11 +3,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Sharing from 'expo-sharing';
 import Toast from 'react-native-root-toast';
 import { ColorScheme } from '@/constants/Colors';
+import { PicturesProps } from '@/types';
 
 const usePictures = () => {
-  const [pictures, setPictures] = useState<
-    { id: string; uri: any; location: { latitude: any; longitude: any } }[]
-  >([]);
+  const [pictures, setPictures] = useState<PicturesProps[]>([]);
   const [loading, setLoading] = useState(false);
 
   const deleteSinglePicture = async (photoId: string) => {
@@ -42,19 +41,15 @@ const usePictures = () => {
   };
 
   const shareImage = async (uri: string) => {
-    setLoading(true);
     try {
       await Sharing.shareAsync(uri);
     } catch (error) {
-      setLoading(false);
       Toast.show('Hubo un error al compartir, por favor intente nuevamente', {
         duration: Toast.durations.SHORT,
         position: Toast.positions.TOP,
         backgroundColor: ColorScheme.DELETE_BUTTON,
         opacity: 1,
       });
-    } finally {
-      setLoading(false);
     }
   };
 

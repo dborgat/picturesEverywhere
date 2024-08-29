@@ -3,13 +3,14 @@ import React from 'react';
 import { View, Modal, Text, TouchableOpacity, Image } from 'react-native';
 import stylesModal from './ActionDeleteModal.styles';
 import { ColorScheme } from '@/constants/Colors';
-const ActionShareOrDeleteModal = ({
+import { ActionShareOrDeleteModalProps } from '@/types';
+
+const ActionDeleteModal = ({
   setModalVisible,
   modalVisible,
-  children,
   onDelete,
   uri,
-}: any) => {
+}: ActionShareOrDeleteModalProps) => {
   const {
     modalContent,
     titleContainer,
@@ -43,7 +44,6 @@ const ActionShareOrDeleteModal = ({
             />
           </TouchableOpacity>
         </View>
-        {children}
         <View style={imageContainer}>
           <Image source={{ uri }} style={image} />
         </View>
@@ -71,4 +71,4 @@ const ActionShareOrDeleteModal = ({
   );
 };
 
-export default ActionShareOrDeleteModal;
+export default ActionDeleteModal;

@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
-import { View, Image, TouchableOpacity, Text } from 'react-native';
+import { View, Image, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
-import ActionShareOrDeleteModal from '../ActionDeleteModal/ActionDeleteModal';
-import { Ionicons } from '@expo/vector-icons';
+import ActionDeleteModal from '../ActionDeleteModal/ActionDeleteModal';
 import styles from './SinglePictureCard.styles';
-import { ColorScheme } from '@/constants/Colors';
 import TouchableOpacityButton from '../TouchableOpacityButton/TouchableOpacityButton';
+import { SinglePictureCardProps } from '@/types';
 
 const SinglePictureCard = ({
   uri,
   id,
   deleteSinglePicture,
   handleShare,
-}: any) => {
+}: SinglePictureCardProps) => {
   const router = useRouter();
   const [modalVisible, setModalVisible] = useState(false);
   const { container, image, buttonsContainer, shareButton, deleteButton } =
@@ -47,7 +46,7 @@ const SinglePictureCard = ({
           />
         </View>
       </View>
-      <ActionShareOrDeleteModal
+      <ActionDeleteModal
         onDelete={() => deleteSinglePicture(id)}
         setModalVisible={setModalVisible}
         modalVisible={modalVisible}
