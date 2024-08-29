@@ -1,23 +1,15 @@
 import React from 'react';
 import { useLocalSearchParams } from 'expo-router';
-import { View, Image, TouchableOpacity, Text } from 'react-native';
+import { View, Image } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import useFotos from '@/hooks/usePictures';
 import styles from './PictureDetailsScreen.styles';
-import { Ionicons } from '@expo/vector-icons';
-import { ColorScheme } from '@/constants/Colors';
+import TouchableOpacityButton from '@/components/TouchableOpacityButton/TouchableOpacityButton';
 
 export default function PictureDetailsScreen() {
   const { photoId } = useLocalSearchParams();
   const { onSelectedPhoto, handleShare } = useFotos();
-  const {
-    container,
-    image,
-    containerMap,
-    map,
-    shareIconButton,
-    shareTextButton,
-  } = styles;
+  const { container, image, containerMap, map, shareIconButton } = styles;
   const selectedPhoto = onSelectedPhoto(photoId);
 
   return (
@@ -44,18 +36,13 @@ export default function PictureDetailsScreen() {
           </MapView>
         )}
       </View>
-
-      <TouchableOpacity
-        onPress={() => handleShare(selectedPhoto?.uri)}
-        style={shareIconButton}
-      >
-        <Ionicons
-          name='share-social-sharp'
-          size={25}
-          color={ColorScheme.BACKGROUND}
-        />
-        <Text style={shareTextButton}>Compartir</Text>
-      </TouchableOpacity>
+      <TouchableOpacityButton
+        title='Compartir'
+        onPressAction={() => handleShare(selectedPhoto?.uri)}
+        buttonColor={shareIconButton}
+        size={25}
+        icon='share'
+      />
     </View>
   );
 }
